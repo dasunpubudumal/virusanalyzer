@@ -1,6 +1,4 @@
 package util;
-
-import beans.VirusBean;
 import config.DatabaseConfiguration;
 
 import javax.swing.*;
@@ -8,9 +6,8 @@ import java.sql.*;
 
 public class DatabaseUtility {
 
-    public VirusBean getData(String hash) throws ClassNotFoundException, SQLException, IllegalAccessException, InstantiationException {
+    public void getData(String hash) throws ClassNotFoundException, SQLException, IllegalAccessException, InstantiationException {
 
-        VirusBean vb = new VirusBean();
         String query = "SELECT * FROM vx WHERE vx.vxMD5 = ?";
 
         Class.forName("org.h2.Driver");
@@ -38,10 +35,6 @@ public class DatabaseUtility {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-
-        return vb;
     }
 
 }
