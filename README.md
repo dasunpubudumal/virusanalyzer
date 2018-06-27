@@ -2,9 +2,7 @@
 
 #### Notes
 
-The `SQL` version of the database can be found from here.
-
-The fully built `.jar` can be found from [here](https://drive.google.com/file/d/0B1g-HCHDlI3PSkpCOUE4bkpSSlk/view).
+The `SQL` version of the database can be found from [here](https://drive.google.com/file/d/0B1g-HCHDlI3PSkpCOUE4bkpSSlk/view).
 
 You need to migrate your SQL database to a H2 database using [Flyway](https://flywaydb.org/getstarted/firststeps/commandline). Since it weighs around 355MB it was decided not to include it into the repository.
 
