@@ -28,7 +28,6 @@ public class DatabaseUtility {
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 
         try {
-
             Connection connection = DriverManager.getConnection(DatabaseConfiguration.URL, DatabaseConfiguration.USERNAME, DatabaseConfiguration.PASSWORD);
 
             PreparedStatement statement = connection.prepareStatement(query);
@@ -40,11 +39,10 @@ public class DatabaseUtility {
                         + resultSet.getString("vxEngine") + ".\nVirus Type: " + resultSet.getString("vxType"));
 
             } else {
-
                 String result = "";
                 int i = 0;
 
-                System.out.println("Please wait while the API gathers your results....");
+                JOptionPane.showMessageDialog(null, "Submitted file was not detected in our database. Let us check the VirusTotal API. Please wait a little while.");
 
                 VirusTotalConfig.getConfigInstance().setVirusTotalAPIKey(DatabaseConfiguration.API_KEY);
                 VirustotalPublicV2 virusTotalRef = new VirustotalPublicV2Impl();
@@ -66,14 +64,11 @@ public class DatabaseUtility {
                     } else {
                         break;
                     }
-
                 }
-
                 JOptionPane.showMessageDialog(null, result);
 
                 result = "";
             }
-
             statement.close();
             connection.close();
 
