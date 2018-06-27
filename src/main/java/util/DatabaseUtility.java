@@ -41,6 +41,9 @@ public class DatabaseUtility {
 
             } else {
 
+                String result = "";
+                int i = 0;
+
                 System.out.println("Please wait while the API gathers your results....");
 
                 VirusTotalConfig.getConfigInstance().setVirusTotalAPIKey(DatabaseConfiguration.API_KEY);
@@ -53,13 +56,22 @@ public class DatabaseUtility {
                 FileScanReport report = virusTotalRef.getScanReport(resource);
 
                 Map<String, VirusScanInfo> scans = report.getScans();
+
                 for (String key: scans.keySet()) {
-                    VirusScanInfo virusInfo = scans.get(key);
-                    System.out.println("Scanner : " + key);
-                    System.out.println("\t\t Result : " + virusInfo.getResult());
-                    System.out.println("\t\t Update : " + virusInfo.getUpdate());
-                    System.out.println("\t\t Version :" + virusInfo.getVersion());
+                    if(i < 5) {
+                        VirusScanInfo virusInfo = scans.get(key);
+
+                        result = result.concat("Scanner: " + key + "\n\t\t Result: " + virusInfo.getResult() + "\n\t\tUpdate: " + virusInfo.getUpdate() + "\n\t\tVersion: " + virusInfo.getVersion() + "\n");
+                        i++;
+                    } else {
+                        break;
+                    }
+
                 }
+
+                JOptionPane.showMessageDialog(null, result);
+
+                result = "";
             }
 
             statement.close();
