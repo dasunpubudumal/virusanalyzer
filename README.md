@@ -13,7 +13,7 @@ However, when converting, you need to alter some lines of code in the original S
 ![Remove this line](docs/1.png "Remove this")
 _Remove this line._
 
-And remove all the `'\` and replace them with `.`
+And remove all the `\'` and replace them with `.`
 
 The converted file will look something like `xxxx.mv.db`. (Depending on your naming conventions) You'll need to rename it to `viruses.mv.db` or change the source code's DB URL to your database name.
 
