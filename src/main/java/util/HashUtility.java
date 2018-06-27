@@ -13,7 +13,7 @@ public class HashUtility {
         FileInputStream fis = new FileInputStream(file);
 
         try {
-            md5 = org.apache.commons.codec.digest.DigestUtils.md5Hex(fis);
+            md5 = org.apache.commons.codec.digest.DigestUtils.sha256Hex(fis);
         } catch (IOException e) {
             e.printStackTrace();
         }

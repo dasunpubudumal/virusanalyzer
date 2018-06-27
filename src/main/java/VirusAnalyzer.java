@@ -1,3 +1,6 @@
+import com.kanishka.virustotal.exception.APIKeyNotFoundException;
+import com.kanishka.virustotal.exception.QuotaExceededException;
+import com.kanishka.virustotal.exception.UnauthorizedAccessException;
 import com.mysql.cj.conf.DatabaseUrlContainer;
 import util.DatabaseUtility;
 import util.HashUtility;
@@ -9,7 +12,7 @@ import java.sql.SQLException;
 
 public class VirusAnalyzer {
 
-    public static void main(String[] args) throws IOException, IllegalAccessException, SQLException, InstantiationException {
+    public static void main(String[] args) throws IOException, IllegalAccessException, SQLException, InstantiationException, APIKeyNotFoundException {
 
         HashUtility hashUtility = new HashUtility();
 
@@ -20,8 +23,12 @@ public class VirusAnalyzer {
         File file = jFileChooser.getSelectedFile();
 
         try {
-            databaseUtility.getData(hashUtility.hashFile(file));
+            databaseUtility.getData(hashUtility.hashFile(file), file);
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnauthorizedAccessException e) {
+            e.printStackTrace();
+        } catch (QuotaExceededException e) {
             e.printStackTrace();
         }
     }
