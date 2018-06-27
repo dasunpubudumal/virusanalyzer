@@ -10,7 +10,7 @@ You need to migrate your SQL database to a H2 database using [Flyway](https://fl
 
 However, when converting, you need to alter some lines of code in the original SQL file.
 
-![Remove this line](docs/1.png "Remove this")
+![Remove this line](docs/2.png "Remove this")
 _Remove this line._
 
 And remove all the `\'` and replace them with `.`
