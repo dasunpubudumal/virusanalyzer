@@ -8,12 +8,12 @@ import java.sql.*;
 
 public class DatabaseUtility {
 
-    public VirusBean getData(String hash) throws ClassNotFoundException {
+    public VirusBean getData(String hash) throws ClassNotFoundException, SQLException, IllegalAccessException, InstantiationException {
 
         VirusBean vb = new VirusBean();
         String query = "SELECT * FROM vx WHERE vx.vxMD5 = ?";
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("org.h2.Driver");
 
         try {
 

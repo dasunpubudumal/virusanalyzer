@@ -5,10 +5,11 @@ import util.HashUtility;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class VirusAnalyzer {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, IllegalAccessException, SQLException, InstantiationException {
 
         HashUtility hashUtility = new HashUtility();
 
