@@ -3,6 +3,7 @@ package util;
 import beans.VirusBean;
 import config.DatabaseConfiguration;
 
+import javax.swing.*;
 import java.sql.*;
 
 public class DatabaseUtility {
@@ -22,10 +23,14 @@ public class DatabaseUtility {
             statement.setString(1, hash);
             ResultSet resultSet = statement.executeQuery();
 
-            resultSet.next();
+            if(resultSet.next()) {
+                JOptionPane.showInternalMessageDialog(null, "Virus Name: " + resultSet.getString("vxVirusName") + ".\nVirus Engine: "
+                        + resultSet.getString("vxEngine") + ".\nVirus Type: " + resultSet.getString("vxType"));
 
-            System.out.println("Virus Name: " + resultSet.getString("vxVirusName") + ".\nVirus Engine: "
-            + resultSet.getString("vxEngine") + ".\nVirus Type: " + resultSet.getString("vxType"));
+            } else {
+                JOptionPane.showMessageDialog(null, "Not found in the Database", "Not Found"
+                , JOptionPane.WARNING_MESSAGE);
+            }
 
             statement.close();
             connection.close();

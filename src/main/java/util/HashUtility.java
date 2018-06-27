@@ -6,11 +6,11 @@ import java.io.IOException;
 
 public class HashUtility {
 
-    public String hashFile(String filename) throws IOException {
+    public String hashFile(File file) throws IOException {
 
         String md5 = "";
 
-        FileInputStream fis = new FileInputStream(new File(filename));
+        FileInputStream fis = new FileInputStream(file);
 
         try {
             md5 = org.apache.commons.codec.digest.DigestUtils.md5Hex(fis);

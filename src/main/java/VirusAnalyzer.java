@@ -2,23 +2,24 @@ import com.mysql.cj.conf.DatabaseUrlContainer;
 import util.DatabaseUtility;
 import util.HashUtility;
 
+import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 
 public class VirusAnalyzer {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         HashUtility hashUtility = new HashUtility();
-        try {
-            hashUtility.hashFile("sample.txt");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         DatabaseUtility databaseUtility = new DatabaseUtility();
 
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.showDialog(null, "Choose File");
+        File file = jFileChooser.getSelectedFile();
+
         try {
-            databaseUtility.getData("00f538c3d410822e241486ca061a57ee");
+            databaseUtility.getData(hashUtility.hashFile(file));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
