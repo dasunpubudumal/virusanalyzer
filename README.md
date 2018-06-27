@@ -4,7 +4,7 @@
 
 The `SQL` version of the database can be found from here.
 
-The fully built `.jar` can be found from [here](https://www.youtube.com/redirect?v=4U_AAtMel94&redir_token=9TkcYTej7ZGj-nY11U1SC5k6yBB8MTUzMDE3NzE4M0AxNTMwMDkwNzgz&event=video_description&q=https%3A%2F%2Fdrive.google.com%2Fopen%3Fid%3D0B1g-HCHDlI3PSkpCOUE4bkpSSlk).
+The fully built `.jar` can be found from [here](https://drive.google.com/file/d/0B1g-HCHDlI3PSkpCOUE4bkpSSlk/view).
 
 You need to migrate your SQL database to a H2 database using [Flyway](https://flywaydb.org/getstarted/firststeps/commandline). Since it weighs around 355MB it was decided not to include it into the repository.
 
@@ -22,5 +22,11 @@ The converted file will look something like `xxxx.mv.db`. (Depending on your nam
 1. Clone the repository.
 2. Adhere to *Notes* section.
 3. Run the application. 
+
+### Acknowledgements
+
+1. [R3d3mp710nX](https://www.youtube.com/channel/UCgbXZgRyEdEBsIe-Ub5d08w) for the Virus DB.
+2. [Apache Commons Library](https://mvnrepository.com/artifact/commons-codec/commons-codec/1.9)
+
 
 
